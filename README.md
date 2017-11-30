@@ -18,7 +18,7 @@ This is a basic LAMP stack environment buit using Docker Compose. It consists fo
 Clone this repository on your local computer. Run the `docker-compose up -d`.
 
 ```shell
-git clone https://github.com/theknightlybuilders/docker-compose-lamp.git
+git clone git@github.com:TheRobBrennan/docker-compose-lamp.git
 cd docker-compose-lamp/
 docker-compose up -d
 ```
