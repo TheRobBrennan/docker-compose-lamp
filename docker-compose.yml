@@ -4,7 +4,7 @@ services:
   webserver:
     build: 
       context: ./bin/webserver
-    container_name: 'tnb-webserver'
+    container_name: 'rb-webserver'
     restart: 'always'
     ports:
       - "80:80"
@@ -18,7 +18,7 @@ services:
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
   mysql:
     build: ./bin/mysql
-    container_name: 'tnb-mysql'
+    container_name: 'rb-mysql'
     restart: 'always'
     ports:
       - "3306:3306"
@@ -27,12 +27,12 @@ services:
       - ${MYSQL_LOG_DIR-./logs/mysql}:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: tiger
-      MYSQL_DATABASE: tnb
-      MYSQL_USER: tnb
-      MYSQL_PASSWORD: tnb
+      MYSQL_DATABASE: rb-demo
+      MYSQL_USER: rb-demo
+      MYSQL_PASSWORD: rb-demo
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: 'tnb-phpmyadmin'
+    container_name: 'rb-phpmyadmin'
     links:
       - mysql
     environment:
@@ -43,7 +43,7 @@ services:
     volumes: 
       - /sessions
   redis:
-    container_name: 'tnb-redis'
+    container_name: 'rb-redis'
     image: redis:latest
     ports:
       - "6379:6379"
