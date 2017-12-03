@@ -26,6 +26,7 @@ docker-compose up -d
 Your LAMP stack is now ready!! You can access it via `http://localhost`.
 
 #### Troubleshooting
+##### Web server already running
 One issue I ran into on my MacBook Pro was that the default web server was already running on port 80:
 ```
 Starting rb-webserver ... 
@@ -50,9 +51,16 @@ You will see output similar to:
 
 ```
 
-On the MacBoob Pro, this was resolved by simply stopping the default apache server in OS X:
+On the MacBook Pro, this was resolved by simply stopping the default apache server in OS X:
 
     $ sudo apachectl stop
+
+##### Configuring your environment for remote debugging
+If you run into issues where XDebug and Docker for Mac are not playing together nicely in your environment, see [https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/](https://www.ashsmith.io/docker/get-xdebug-working-with-docker-for-mac/) or just create an alias to match the `xdebug.remote_host=10.254.254.254` setting in `php.ini`:
+
+    $ sudo ifconfig lo0 alias 10.254.254.254
+
+If you are using Visual Studio Code (strongly recommended), be sure that you have downloaded and installed the [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) extension.
 
 ### Configuration
 
