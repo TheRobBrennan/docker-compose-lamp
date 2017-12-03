@@ -1,6 +1,4 @@
 /.env
-/.vscode
-!/.vscode/launch.json
 /config/*
 /data/*
 /logs/*
